@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @base_title = "Ruby on Rails Tutorial Sample App"
+  end
+
   test "should get home" do
-    get static_pages_home_url
+    get root_url
     assert_response :success
   end
 
@@ -11,4 +16,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get about" do
+    get static_pages_about_url
+    assert_response :success
+  end
 end
